@@ -1,0 +1,51 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build ballistic console",
+      "type": "shell",
+      "command": "C:/msys64/ucrt64/bin/g++.exe",
+      "args": [
+        "-std=c++17",
+        "-Iinclude",
+        "src/particle.cpp",
+        "examples/ballistic_console.cpp",
+        "-o",
+        "build/ballistic_console.exe"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": "$gcc",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build graphical ballistic demo",
+      "type": "shell",
+      "command": "C:/msys64/ucrt64/bin/g++.exe",
+      "args": [
+        "-std=c++17",
+        "-Iinclude",
+        "-Isrc/demos",
+        "src/particle.cpp",
+        "src/demos/timing.cpp",
+        "src/demos/app.cpp",
+        "src/demos/main.cpp",
+        "src/demos/ballistic/ballistic.cpp",
+        "-o",
+        "build/ballistic_demo.exe",
+        "-lfreeglut",
+        "-lopengl32",
+        "-lglu32"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": "$gcc",
+      "group": "build"
+    }
+  ]
+}
